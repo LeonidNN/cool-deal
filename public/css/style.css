@@ -435,3 +435,25 @@ img {
 .contacts-list a:hover {
   text-decoration: underline;
 }
+
+/* Funding block (FSI) */
+.footer .funding {
+  width: 100%;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.footer .funding img {
+  height: 40px;          /* можно подправить размер по вкусу */
+  display: block;
+  margin: 0 auto 12px;   /* центрируем логотип и даём отступ снизу */
+}
+
+.footer .funding p {
+  color: rgba(255, 255, 255, 0.92); /* читабельно на тёмном фоне футера */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 920px;      /* чтобы текст не расползался по всей ширине */
+  margin: 0 auto;
+  padding: 0 16px;
+}
