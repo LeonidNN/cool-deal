@@ -2,230 +2,340 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cool Deal – персональный климат‑контроль</title>
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/css/style.css">
+  <title>Cool Deal — охлаждающая поддёвка для горячих цехов</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cool Deal — персональный климат-контроль для работников горячих цехов. Жидкостная охлаждающая поддёвка под СИЗ, пилотные проекты для металлургии и других производств.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Навигация -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a href="#" class="brand">Cool Deal</a>
-      <nav>
-        <a href="#catalog">Каталог</a>
-        <a href="#scenarios">Сценарии</a>
-        <a href="#advantages">Преимущества</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-mark">Cool Deal</span>
+        <span class="logo-tagline">для горячих цехов</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#hero">Главная</a>
+        <a href="#problem">Проблема</a>
+        <a href="#solution">Решение</a>
+        <a href="#economics">Экономика</a>
+        <a href="#pilot">Пилот</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#faq">FAQ</a>
         <a href="#contacts">Контакты</a>
       </nav>
+      <div class="header-cta">
+        <a href="#contacts" class="btn btn-small btn-outline">Обсудить пилот</a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero section -->
-  <section class="hero" id="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content container">
-      <h1 class="hero-title fade-in-right">Cool Deal</h1>
-      <p class="hero-subtitle fade-in-right">Персональный климат‑контроль</p>
-      <div class="hero-buttons fade-in-right">
-        <button class="btn primary" onclick="scrollToForm('inquiry-form')">Протестировать бесплатно</button>
-        <button class="btn secondary" onclick="scrollToForm('inquiry-form')">Сотрудничество</button>
-        <button class="btn tertiary" onclick="scrollToForm('inquiry-form')" disabled>Скоро в продаже</button>
-      </div>
-    </div>
-  </section>
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="section hero-section">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Сколько денег ваш цех теряет из-за жары?</h1>
+          <p class="hero-subtitle">
+            Перегрев рабочих — это не только дискомфорт. Это травмы, простои и падение продуктивности,
+            которые напрямую бьют по P&amp;L. Cool Deal превращает перегрев в управляемый KPI.
+          </p>
+          <div class="hero-actions">
+            <a href="#economics" class="btn">Рассчитать потери</a>
+            <a href="#contacts" class="btn btn-outline">Обсудить пилот</a>
+          </div>
+          <p class="hero-note">
+            Основной фокус — <strong>металлургия и другие горячие производства</strong> в России и СНГ.
+          </p>
+        </div>
 
-  <!-- Каталог -->
-  <section id="catalog" class="section catalog">
-    <div class="container">
-      <h2 class="section-title fade-in-left">Наши решения</h2>
-      <div class="cards">
-        <div class="card fade-in-left" onclick="location.href='product-air.html'">
-          <img src="/images/product-air.jpg" alt="Мини‑AC">
-          <div class="card-content">
-            <h3>Мини‑AC</h3>
-            <p class="card-desc">Воздушное охлаждение для мотоциклистов.</p>
-            <p class="card-price">≈30 000 ₽</p>
-            <span class="card-link">Подробнее →</span>
-          </div>
-        </div>
-        <div class="card fade-in-right" onclick="location.href='product-belt.html'">
-          <img src="/images/product-belt.jpg" alt="Пояс‑обдув">
-          <div class="card-content">
-            <h3>Пояс‑обдув</h3>
-            <p class="card-desc">Охлаждение и обогрев под экипировкой.</p>
-            <p class="card-price">≈5 000 ₽</p>
-            <span class="card-link">Подробнее →</span>
-          </div>
-        </div>
-        <div class="card fade-in-left" onclick="location.href='product-liquid.html'">
-          <img src="/images/product-liquid.jpg" alt="Жидкостный жилет">
-          <div class="card-content">
-            <h3>Жидкостный жилет</h3>
-            <p class="card-desc">Максимальная эффективность для жарких условий.</p>
-            <p class="card-price">≈30 000 ₽</p>
-            <span class="card-link">Подробнее →</span>
-          </div>
+        <div class="hero-card">
+          <h2 class="card-title">Быстрый расчёт потерь</h2>
+          <p class="card-subtitle">3 числа — и вы увидите, сколько перегрев стоит вашему цеху в год.</p>
+          <form class="mini-calc" id="miniCalc">
+            <label>
+              Сотрудников в горячих зонах
+              <input type="number" name="workers" min="1" step="1" placeholder="Например, 40" required>
+            </label>
+            <label>
+              Средняя зарплата одного, ₽/мес
+              <input type="number" name="salary" min="0" step="1000" placeholder="Например, 80000" required>
+            </label>
+            <label>
+              Травм в горячих зонах за год
+              <input type="number" name="injuries" min="0" step="1" placeholder="Например, 3" required>
+            </label>
+            <button type="submit" class="btn btn-full">Прикинуть потери</button>
+          </form>
+          <div class="mini-result" id="miniResult" aria-live="polite"></div>
+          <p class="mini-hint">
+            Это оценка: учитываем скрытые потери продуктивности и прямые издержки от травм.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Сценарии использования -->
-  <section id="scenarios" class="section scenarios">
-    <div class="container">
-      <h2 class="section-title fade-in-right">Для кого</h2>
-      <div class="scenario-grid">
-        <div class="scenario-item fade-in-right">
-          <h3>Мотоциклисты</h3>
-          <p>Комфорт в дальних поездках и городском трафике. Охлаждение и обогрев под мотокурткой.</p>
-        </div>
-        <div class="scenario-item fade-in-left">
-          <h3>Курьеры</h3>
-          <p>Работа в униформе при любой погоде. Держите себя в тонусе летом и зимой.</p>
-        </div>
-        <div class="scenario-item fade-in-right">
-          <h3>Горячие цеха</h3>
-          <p>Повышение безопасности и производительности сотрудников на производствах.</p>
+    <!-- PROBLEM -->
+    <section id="problem" class="section section-alt">
+      <div class="container">
+        <h2>Почему перегрев — это бизнес-проблема, а не «просто жара»</h2>
+        <div class="features-grid">
+          <article class="feature">
+            <h3>Падение продуктивности</h3>
+            <p>
+              В жаре люди работают медленнее, чаще ошибаются, дольше восстанавливаются. Даже 5&nbsp;% потерь
+              от фонда оплаты труда на горячих участках — это сотни тысяч рублей в год.
+            </p>
+          </article>
+          <article class="feature">
+            <h3>Рост травматизма и брака</h3>
+            <p>
+              Усталость, перегрев, снижение концентрации — прямой путь к травмам, авариям и браку.
+              Каждая такая ситуация стоит денег и репутации.
+            </p>
+          </article>
+          <article class="feature">
+            <h3>Фактор удержания персонала</h3>
+            <p>
+              Молодые сотрудники не готовы «гореть на работе» буквально. Комфортные условия
+              повышают лояльность и снижают текучку.
+            </p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Преимущества -->
-  <section id="advantages" class="section advantages">
-    <div class="container">
-      <h2 class="section-title fade-in-left">Преимущества</h2>
-      <div class="advantages-grid">
-        <div class="adv-item fade-in-left">
-          <div class="adv-icon">
-            <!-- thermometer icon -->
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V4a2 2 0 0 0-4 0v10.76a5 5 0 1 0 4 0z"></path></svg>
-          </div>
-          <h3>Охлаждение и обогрев</h3>
-          <p>Настройка температуры от 18°C до 30°C в одном устройстве.</p>
+    <!-- SOLUTION -->
+    <section id="solution" class="section">
+      <div class="container solution-grid">
+        <div>
+          <h2>Решение: жидкостная охлаждающая поддёвка под СИЗ</h2>
+          <p>
+            Cool Deal — это термобельё-поддёвка, по которому циркулирует охлаждённая вода
+            из компактного модуля. Система равномерно отводит тепло от тела и удерживает
+            комфортную температуру в течение смены.
+          </p>
+          <ul class="checklist">
+            <li><strong>Автономность 4 часа</strong> без провода. Потом просто меняете аккумулятор — и продолжаете работать.</li>
+            <li><strong>Мощность охлаждения 200 Вт</strong> — достаточно для тяжёлых условий горячих цехов.</li>
+            <li><strong>Совместимость с СИЗ</strong>: поддёвка надевается под стандартную защитную одежду.</li>
+            <li><strong>Индивидуальная адаптация</strong>: под ваши регламенты и СИЗ можем доработать конструкцию.</li>
+            <li><strong>Ориентировочная стоимость комплекта — 30&nbsp;000 ₽</strong>.</li>
+          </ul>
         </div>
-        <div class="adv-item fade-in-right">
-          <div class="adv-icon">
-            <!-- clothing icon -->
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l4-4 4 2 4-2 4 4v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z"></path><path d="M14 7v15"></path><path d="M10 7v15"></path></svg>
-          </div>
-          <h3>Совместимость</h3>
-          <p>Носите под любой экипировкой и униформой без дискомфорта.</p>
-        </div>
-        <div class="adv-item fade-in-left">
-          <div class="adv-icon">
-            <!-- plug icon -->
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"></path><path d="M7 7h10"></path><rect x="3" y="14" width="18" height="8" rx="2"></rect></svg>
-          </div>
-          <h3>Универсальное питание</h3>
-          <p>Работа от аккумулятора, мотоцикла, транспорта или сети 220 В.</p>
-        </div>
-        <div class="adv-item fade-in-right">
-          <div class="adv-icon">
-            <!-- settings icon -->
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09A1.65 1.65 0 0 0 9 3.09V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-          </div>
-          <h3>Регулировка</h3>
-          <p>Устанавливайте нужную температуру одним касанием.</p>
+        <div class="solution-card">
+          <h3>Как это ощущается для сотрудника</h3>
+          <ul class="feel-list">
+            <li>Жара перестаёт «выбивать» из рабочего состояния уже через 15–30 минут.</li>
+            <li>К концу смены меньше чувства «выжатого лимона».</li>
+            <li>Никаких «ледяных» участков — охлаждение равномерное, в комфортном диапазоне.</li>
+            <li>Модуль весит около 4 кг, конструкция эргономична, ничего не выпирает и не цепляется.</li>
+            <li>Небольшой период привыкания — через неделю большинство отмечают, что домой приходят заметно бодрее.</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Формы -->
-  <section id="forms" class="section forms">
-    <div class="container">
-      <h2 class="section-title fade-in-left">Свяжитесь с нами</h2>
-      <div class="form-block fade-in-left" id="inquiry-form">
-        <h3>Оставить заявку</h3>
-        <form id="main-form" class="contact-form">
-          <div class="form-group">
-            <label for="inquiry-type">Тип запроса</label>
-            <select id="inquiry-type" name="type">
-              <option value="test">Протестировать бесплатно</option>
-              <option value="collaboration">Сотрудничество</option>
-              <option value="preorder">Оформить предзаказ</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="inquiry-name">Имя</label>
-            <input type="text" id="inquiry-name" name="name" required>
-          </div>
-          <div class="form-group">
-            <label for="inquiry-email">Email</label>
-            <input type="email" id="inquiry-email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label for="inquiry-phone">Телефон</label>
-            <input type="tel" id="inquiry-phone" name="phone">
-          </div>
-          <div class="form-group">
-            <label for="inquiry-company">Компания</label>
-            <input type="text" id="inquiry-company" name="company">
-          </div>
-          <div class="form-group">
-            <label for="inquiry-device">Устройство</label>
-            <select id="inquiry-device" name="device">
-              <option value="Mini-AC">Мини‑AC</option>
-              <option value="Пояс-обдув">Пояс‑обдув</option>
-              <option value="Жидкостный жилет">Жидкостный жилет</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="inquiry-quantity">Количество</label>
-            <input type="number" id="inquiry-quantity" name="quantity" min="1" value="1">
-          </div>
-          <div class="form-group">
-            <label for="inquiry-message">Сообщение</label>
-            <textarea id="inquiry-message" name="message" rows="3"></textarea>
-          </div>
-          <button type="submit" class="btn primary">Отправить</button>
-          <p class="form-status"></p>
-        </form>
-      </div>
-    </div>
-  </section>
+    <!-- ECONOMICS + MAIN CALCULATOR -->
+    <section id="economics" class="section section-alt">
+      <div class="container">
+        <h2>Экономика перегрева: прикиньте на своих цифрах</h2>
+        <p class="section-intro">
+          Ниже — простой расчёт. Введите данные для ваших горячих участков, и вы увидите
+          оцениваемые годовые потери от перегрева сотрудников.
+        </p>
 
-  <!-- Контакты -->
-  <section id="contacts" class="section contacts">
-    <div class="container">
-      <h2 class="section-title fade-in-right">Контакты</h2>
-      <div class="contacts-content fade-in-left">
-        <p>Свяжитесь с нами удобным для вас способом:</p>
-        <ul class="contacts-list">
-          <li><strong>Email:</strong> <a href="mailto:nekrylov.ln@phystech.edu">nekrylov.ln@phystech.edu</a></li>
-          <li><strong>Telegram:</strong> <a href="https://t.me/leonid_n_n" target="_blank">@leonid_n_n</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
+        <div class="calc-grid">
+          <form class="calc-form" id="fullCalc">
+            <label>
+              Сотрудников в горячих зонах
+              <input type="number" name="workers" min="1" step="1" placeholder="Например, 40" required>
+            </label>
+            <label>
+              Средняя зарплата одного, ₽/мес
+              <input type="number" name="salary" min="0" step="1000" placeholder="Например, 80000" required>
+            </label>
+            <label>
+              Травм в горячих зонах за год
+              <input type="number" name="injuries" min="0" step="1" placeholder="Например, 3" required>
+            </label>
+            <button type="submit" class="btn btn-full">Рассчитать потери</button>
+          </form>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="funding">
-        <img src="/images/fsi.png" alt="Эмблема Фонда содействия инновациям">
-        <p>
-          Проект реализован при поддержке Фонда содействия инновациям в рамках программы «Студенческий стартап»
-          федерального проекта «Платформа университетского технологического предпринимательства»
+          <div class="calc-result" id="fullResult">
+            <h3>Результат расчёта</h3>
+            <p class="calc-placeholder">
+              Заполните поля слева и нажмите «Рассчитать потери».
+            </p>
+          </div>
+        </div>
+
+        <p class="calc-disclaimer">
+          Расчёт носит оценочный характер и показывает порядка величин. Точная экономика пилота
+          обсуждается индивидуально и зависит от ваших процессов, сменности, структуры фонда оплаты труда и учёта травм.
         </p>
       </div>
-      <div class="footer-left">
-        <p>&copy; <span id="year"></span> Cool Deal</p>
-        <div class="company-info">
-          <span>ООО «Кул Дил», ИНН 7733457136</span>
+    </section>
+
+    <!-- PILOT -->
+    <section id="pilot" class="section">
+      <div class="container">
+        <h2>Пилот в вашем цехе: как это происходит</h2>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Созвон или переписка</h3>
+            <p>15–30 минут, чтобы понять ваши условия: тип производства, горячие зоны, СИЗ, ограничения по безопасности.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Подбор комплекта</h3>
+            <p>Определяем количество комплектов и конфигурацию системы под ваш участок и сменность.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>2–4 недели пилота</h3>
+            <p>Сотрудники работают в охлаждающей поддёвке в реальных условиях. Параллельно собираем обратную связь.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Оценка результата</h3>
+            <p>Сравниваем до/после по субъективным ощущениям, жалобам, травмам, простоям. Обсуждаем масштабирование.</p>
+          </div>
         </div>
       </div>
-      <div class="footer-right">
-        <div class="footer-links">
-          <a href="mailto:nekrylov.ln@phystech.edu">Email</a>
-          <a href="https://t.me/leonid_n_n" target="_blank">Telegram</a>
+    </section>
+
+    <!-- CASES -->
+    <section id="cases" class="section section-alt">
+      <div class="container">
+        <h2>Первые пилоты на небольших производствах</h2>
+        <div class="cases-grid">
+          <article class="case-card">
+            <h3>Прокатный цех, 34 человека</h3>
+            <p class="case-label">Центральная Россия, микропредприятие</p>
+            <p>
+              Участок ручного и полуавтоматического проката: летом температура воздуха у стана поднимается
+              до 38–40&nbsp;°C, регулярные жалобы на усталость к концу смены и несколько травм в жаркий сезон.
+            </p>
+            <ul>
+              <li>Пилот 3 недели: 4 комплекта Cool Deal на бригаде из 10 человек на самом горячем посту (операторы стана и укладчики).</li>
+              <li>Смена 12 часов; поддёвки использовались в самые «горячие» 6–8 часов, дальше — как обычное СИЗ.</li>
+              <li>По опросу мастеров и рабочих после пилота: меньше «выбиваний» из-за самочувствия, меньше жалоб на головные боли и перегрев.</li>
+              <li>За время пилота на этой бригаде не зафиксировано дополнительных простоев по самочувствию работников.</li>
+            </ul>
+          </article>
+
+          <article class="case-card">
+            <h3>Цех металлообработки IEK, 17 человек</h3>
+            <p class="case-label">Обработка корпусов и шинопроводов, горячие зоны у печей и камер окраски</p>
+            <p>
+              Руководство искало способ улучшить условия труда без капитальных вложений в вентиляцию
+              и реконструкцию печей и камер порошковой окраски.
+            </p>
+            <ul>
+              <li>Пилот 1 месяц на участке подготовки и окраски: 3 комплекта Cool Deal, ротация между операторами в самые жаркие часы (10:00–16:00).</li>
+              <li>Систему тестировали с типовыми СИЗ: хлопчатобумажные костюмы, спецобувь, щитки; поддёвка интегрировалась под существующую экипировку без изменения регламентов.</li>
+              <li>По журналам обращений в медпункт и внутренним опросам: меньше жалоб на головные боли и перегрев, сотрудники отмечали более стабильную работоспособность к концу смены.</li>
+              <li>По итогам пилота служба охраны труда и руководитель цеха готовят предложение по расширению применения системы на остальной персонал.</li>
+            </ul>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <h2>Частые вопросы</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Не будет ли холодно? Нет риска переохлаждения?</summary>
+            <p>
+              Система обеспечивает равномерное, комфортное охлаждение. Никаких «ледяных точек» — температура
+              держится в комфортном диапазоне, задача — убрать перегрев, а не заморозить человека.
+            </p>
+          </details>
+
+          <details>
+            <summary>Совместимо ли это с нашими текущими СИЗ?</summary>
+            <p>
+              Базовая поддёвка рассчитана на использование под типовой защитной одеждой. Если ваши СИЗ
+              имеют нестандартную конструкцию или ограничения, мы дорабатываем решение под ваши требования
+              на этапе пилота.
+            </p>
+          </details>
+
+          <details>
+            <summary>Как ухаживать и стирать поддёвку с трубками?</summary>
+            <p>
+              Конкретный регламент стирки зависит от финальной версии изделия. В базовом варианте — щадящая
+              стирка с ограничением температуры воды и аккуратной сушкой. При запуске пилота мы передаём
+              подробную инструкцию по уходу.
+            </p>
+          </details>
+
+          <details>
+            <summary>Что, если сотруднику сначала будет неудобно?</summary>
+            <p>
+              Любое новое СИЗ требует привыкания. Важно дать сотруднику хотя бы неделю работы с системой —
+              именно тогда становится заметно, что он меньше выматывается и быстрее восстанавливается после смены.
+            </p>
+          </details>
+
+          <details>
+            <summary>Насколько это безопасно в условиях горячего цеха?</summary>
+            <p>
+              Система проектируется под ваши требования безопасности. Конструкция и размещение модулей выбираются так,
+              чтобы минимизировать риски и не конфликтовать с существующими нормами охраны труда. Все особенности
+              обсуждаем до старта пилота.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="section section-alt">
+      <div class="container contacts-grid">
+        <div>
+          <h2>Свяжитесь с Cool Deal</h2>
+          <p>
+            Напишите нам напрямую, чтобы обсудить пилот в вашем цехе или задать вопросы по технологии.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:nekrylov.ln@phystech.edu" class="contact-link">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">nekrylov.ln@phystech.edu</span>
+            </a>
+            <a href="https://t.me/leonid_n_n" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-label">Telegram</span>
+              <span class="contact-value">@leonid_n_n</span>
+            </a>
+          </div>
+        </div>
+        <div class="contacts-note">
+          <h3>ООО «Кул Дил»</h3>
+          <p>Проект Cool Deal — персональный климат-контроль и решения для горячих производств, которые развивают выпускники и студенты МФТИ.</p>
+          <ul>
+            <li>ИНН 7733457136</li>
+            <li>ОГРН 1247700694658</li>
+            <li>Россия, Москва</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Cool Deal. ООО «Кул Дил».</div>
+      <div class="footer-links">
+        <span>Персональный климат-контроль для горячих цехов.</span>
       </div>
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
